@@ -4,14 +4,8 @@ import pandas as pd
 df=pd.read_csv("ProjectFinalMerged.csv")
 print(df.shape)
 
-del df['Distance']
+df.drop(['Unnamed: 0', 'Luminosity', 'Unnamed: 6', 'Star_name1', 'Distance1', 'Mass1', 'Radius1'],axis=1,inplace=True)
+print(df.columns)
+finalData=df.dropna()
 
-del df['Mass']
-
-del df['Radius']
-
-del df['Star_name']
-
-# print(list(df))
-
-df.to_csv('Projectmain.csv')
+finalData.to_csv('Projectmain.csv')
